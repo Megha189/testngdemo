@@ -21,6 +21,8 @@ public class Demo1 extends BaseTest {
 			pom.setPwTB("admin");
 			pom.clickLogin();
 			pom.verifyerrormsg(driver);
+			pom.verifyerrormsgColor(driver);
+			pom.verifyfont();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw new TitleNotMatchException();
