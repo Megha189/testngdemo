@@ -18,9 +18,9 @@ public class Demo1 extends BaseTest {
 		try {
 			LoginPOM pom = new LoginPOM(driver);
 			pom.setUnTB("admin");
-			pom.setPwTB("admin1");
+			pom.setPwTB("admin");
 			pom.clickLogin();
-			
+			pom.verifyerrormsg(driver);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw new TitleNotMatchException();
