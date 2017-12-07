@@ -2,6 +2,7 @@ package pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,5 +49,33 @@ public class LoginPOM {
 			Assert.fail();
 		}
 	}
-
+	public void verifyerrormsgColor(WebDriver driver)
+	{
+		String acolor = errMSG.getCssValue("Color");
+		String hexcolor = Color.fromString(acolor).asHex();
+		Reporter.log("actual hex color:"+hexcolor,true);
+		if(hexcolor.equals("#a94442"))
+		{
+			Reporter.log("pass:color is matchhing...",true);
+		}
+		else
+		{
+			Reporter.log("Fail:color is not matching....",true);
+			Assert.fail();
+		}
+	}
+	public void verifyfont()
+	{
+		
+		String afont = errMSG.getCssValue("font-family");
+		Reporter.log("font:"+afont,true);
+		if(afont.equals("Helvetica, sans-serif, Arial"))
+		{
+			Reporter.log("Pass:font matcinng...",true);
+		}
+		else
+		{
+			Reporter.log("Fail:font matching fail...",true);
+		}
+	}
 }
